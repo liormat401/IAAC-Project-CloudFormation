@@ -1,0 +1,16 @@
+{
+    "AWSTemplateFormatVersion" : "2010-09-09",
+    "Description": "A template for learning cloudformation",
+    "Metadata": {
+      "Author": "Lior Matana"
+    },
+}
+"Resources": {
+    "DemoVPC":{
+    "Type": "AWS::EC2::VPC",
+    "Properties" : {
+        "CidrBlock" : "192.168.1.0/24"
+    }
+
+    }
+}
