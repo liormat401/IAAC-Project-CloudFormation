@@ -14,7 +14,7 @@
 
         },
     "PublicSub" : {
-        "Type" : {"AWS::EC2::Subnet"},
+        "Type" : "AWS::EC2::Subnet",
         "Properties":{
             "AvailabilityZone":"us-west-2a",
             "CidrBlock":"192.168.1.0/24",
@@ -24,4 +24,3 @@
         }
     }
 }
-##meow
