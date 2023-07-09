@@ -1,26 +1,26 @@
 {
-    "AWSTemplateFormatVersion" : "2010-09-09",
-    "Description": "A template for learning cloudformation",
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "A template for learning CloudFormation",
     "Metadata": {
       "Author": "Lior Matana"
     },
-
-"Resources": {
-    "DemoVPC" : {
-    "Type": "AWS::EC2::VPC",
-    "Properties" : {
-        "CidrBlock" : "192.168.0.0/24"
-                },
-
-        },
-    "PublicSub" : {
-        "Type" : "AWS::EC2::Subnet",
-        "Properties":{
-            "AvailabilityZone":"us-west-2a",
-            "CidrBlock":"192.168.1.0/24",
-            "VpcId": {"Ref": "DemoVPC"},
-                }
-
+    "Resources": {
+      "DemoVPC": {
+        "Type": "AWS::EC2::VPC",
+        "Properties": {
+          "CidrBlock": "192.168.0.0/24"
         }
+      },
+      "PublicSub": {
+        "Type": "AWS::EC2::Subnet",
+        "Properties": {
+          "AvailabilityZone": "us-west-2a",
+          "CidrBlock": "192.168.1.0/24",
+          "VpcId": {
+            "Ref": "DemoVPC"
+          }
+        }
+      }
     }
-}
+  }
+  
