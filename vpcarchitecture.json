@@ -87,5 +87,54 @@
         "VpcId":{"Ref":"DemoVPC"}
       }
     },
-  }
+    "pubsubroutetableassociation" :{
+      "Type" : "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties" :{
+        "RouteTableId":{"Ref":"PublicRoute"},
+        "SubnetId":{ "Ref" : "PublicSub"}
+      }
+    },
+    "PubRoute" :{
+      "Type":{"AWS::EC2::Route"},
+      "DependsOn":"DemoIGW",
+      "Properties":{
+        "RouteTableId": {"Ref":"PublicRoute"},
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId":{"Ref":"DemoIGW"}
+      }
+    },
+    "PriSubroutetableassociation1":{
+      "Type":"AWS::EC2::SubnetRouteTableAssociation",
+      "Properties":{
+        "RouteTableId":{"Ref":"PrivateRoute"},
+        "SubnetId":{"Ref":"PrivateSub1"}
+      }
+    },
+    "PriSubroutetableassociation2":{
+      "Type":"AWS::EC2::SubnetRouteTableAssociation",
+      "Properties":{
+        "RouteTableId":{"Ref":"PrivateRoute"},
+        "SubnetId":{"Ref":"PrivateSub2"}
+      }
+    },
+    "PriSubroutetableassociation3":{
+      "Type":"AWS::EC2::SubnetRouteTableAssociation",
+      "Properties":{
+        "RouteTableId":{"Ref":"PrivateRoute"},
+        "SubnetId":{"Ref":"PrivateSub3"}
+      }
+    },
+    "PriRoute":{
+      "Type":{"AWS::EC2::Route"},
+      "DependsOn":"NATGateway",
+      "Properties":{
+        "RouteTableId":{"Ref":"PrivateRoute"},
+        "DestinationCidrBlock":"0.0.0.0/0",
+        "NatGatewayId":{"Ref":"NATGateway"}
+      }
+    },
+    
+
+
+ }
 }
