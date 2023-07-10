@@ -138,7 +138,6 @@
     },
     "PriRoute":{
       "Type":"AWS::EC2::Route",
-      "DependsOn":"NATGateway",
       "Properties":{
         "RouteTableId":{"Ref":"PrivateRoute"},
         "DestinationCidrBlock":"0.0.0.0/0",
