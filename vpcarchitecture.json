@@ -69,7 +69,7 @@
 
     "ElasticIP":{
       "Type" : "AWS::EC2::EIP",
-      "DependsOn":["AttachGateway"] ,
+      "DependsOn":[{"Ref":"AttachGateway"}] ,
       "Properties" : {
             "Domain" : "VPC",
             "Tags" : [{"Key" : "Name", "Value" : "ElasticIP"}]
