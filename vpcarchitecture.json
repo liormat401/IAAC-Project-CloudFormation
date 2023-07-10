@@ -212,7 +212,7 @@
         "VpcId":{"Ref":"DemoVPC"}
       }
     },
-    "inboundApp-web":{
+    "inboundAppWeb":{
       "Type": "AWS::EC2::SecurityGroupingress",
       "Properties":{
         "IpProtocol":"icmp",
@@ -222,7 +222,7 @@
         "GroupId":{"Ref":"appSG"}
       }
     },
-    "inboundApp-bastion":{
+    "inboundAppBastion":{
       "Type": "AWS::EC2::SecurityGroupingress",
       "Properties":{
         "IpProtocol":"tcp",
@@ -232,7 +232,7 @@
         "GroupId":{"Ref":"appSG"}
       }
     },
-    "inboundDB-app":{
+    "inboundDBApp":{
       "Type": "AWS::EC2::SecurityGroupingress",
       "Properties":{
         "IpProtocol":"tcp",
@@ -243,7 +243,7 @@
 
       }
     },
-    "inboundDB-bastion":{
+    "inboundDbBastion":{
       "Type": "AWS::EC2::SecurityGroupingress",
       "Properties":{
         "IpProtocol":"tcp",
@@ -254,7 +254,7 @@
 
       }
     },
-    "inboundBastion-dbSG":{
+    "inboundBastionDbSG":{
       "Type": "AWS::EC2::SecurityGroupingress",
       "Properties":{
         "IpProtocol":"tcp",
@@ -265,7 +265,7 @@
 
       }
     },
-    "inboundWeb-db":{
+    "inboundWebDb":{
       "Type": "AWS::EC2::SecurityGroupingress",
       "Properties":{
         "IpProtocol":"icmp",
@@ -276,7 +276,7 @@
 
       }
     },
-    "inboundApp-db":{
+    "inboundAppDb":{
       "Type": "AWS::EC2::SecurityGroupingress",
       "Properties":{
         "IpProtocol":"tcp",
