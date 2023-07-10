@@ -95,7 +95,7 @@
       }
     },
     "PubRoute" :{
-      "Type":{"AWS::EC2::Route"},
+      "Type":"AWS::EC2::Route",
       "DependsOn":"DemoIGW",
       "Properties":{
         "RouteTableId": {"Ref":"PublicRoute"},
@@ -125,7 +125,7 @@
       }
     },
     "PriRoute":{
-      "Type":{"AWS::EC2::Route"},
+      "Type":"AWS::EC2::Route",
       "DependsOn":"NATGateway",
       "Properties":{
         "RouteTableId":{"Ref":"PrivateRoute"},
@@ -133,7 +133,163 @@
         "NatGatewayId":{"Ref":"NATGateway"}
       }
     },
-    
+    "bastionSG":{
+      "Type":"AWS::EC2::SecurityGroup",
+      "Properties":{
+        "GroupDescription":"this is the sd of bastion host",
+        "VpcId":{"Ref":"DemoVPC"},
+        "SecurityGroupEgress":[{
+          "IpProtocol": "tcp",
+          "FromPort":"80",
+          "ToPort":"80",
+          "CidrIp":"0.0.0.0/0"
+        },
+        {
+          "IpProtocol": "tcp",
+          "FromPort":"443",
+          "ToPort":"443",
+          "CidrIp":"0.0.0.0/0"
+        },
+        {
+          "IpProtocol": "tcp",
+          "FromPort":"22",
+          "ToPort":"22",
+          "CidrIp":"0.0.0.0/0"
+        }
+      ]
+      }
+    },
+    "webserverSG":{
+      "Type":"AWS::EC2::SecurityGroup",
+      "Properties":{
+        "GroupDescription":"this is the sd of webserver",
+        "VpcId":{"Ref":"DemoVPC"},
+        "SecurityGroupIngress":[{
+          "IpProtocol": "tcp",
+          "FromPort":"80",
+          "ToPort":"80",
+          "CidrIp":"0.0.0.0/0"
+        },
+        {
+          "IpProtocol": "tcp",
+          "FromPort":"443",
+          "ToPort":"443",
+          "CidrIp":"0.0.0.0/0"
+        },
+        {
+          "IpProtocol": "tcp",
+          "FromPort":"22",
+          "ToPort":"22",
+          "CidrIp":"0.0.0.0/0"
+        }
+      ]
+      }
+    },
+    "appSG":{
+      "Type":"AWS::EC2::SecurityGroup",
+      "Properties":{
+        "GroupDescription":"this is the sd of the app",
+        "VpcId":{"Ref":"DemoVPC"},
+        "SecurityGroupIngress":[{
+          "IpProtocol": "tcp",
+          "FromPort":"80",
+          "ToPort":"80",
+          "CidrIp":"0.0.0.0/0"
+        },
+        {
+          "IpProtocol": "tcp",
+          "FromPort":"443",
+          "ToPort":"443",
+          "CidrIp":"0.0.0.0/0"
+        }
+      ]
+      }
+    },
+    "dbSG":{
+      "Type":"AWS::EC2::SecurityGroup",
+      "Properties":{
+        "GroupDescription":"this is the sd of database",
+        "VpcId":{"Ref":"DemoVPC"}
+      }
+    },
+    "inboundApp-web":{
+      "Type": "AWS::EC2::SecurityGroupingress",
+      "Properties":{
+        "IpProtocol":"icmp",
+        "FromPort":"-1",
+        "ToPort":"-1",
+        "SourceSecurityGroupId":{"Ref":"webserverSG"},
+        "GroupId":{"Ref":"appSG"}
+      }
+    },
+    "inboundApp-bastion":{
+      "Type": "AWS::EC2::SecurityGroupingress",
+      "Properties":{
+        "IpProtocol":"tcp",
+        "FromPort":"22",
+        "ToPort":"22",
+        "SourceSecurityGroupId":{"Ref":"bastionSG"},
+        "GroupId":{"Ref":"appSG"}
+      }
+    },
+    "inboundDB-app":{
+      "Type": "AWS::EC2::SecurityGroupingress",
+      "Properties":{
+        "IpProtocol":"tcp",
+        "FromPort":"3306",
+        "ToPort":"3306",
+        "SourceSecurityGroupId":{"Ref":"appSG"},
+        "GroupId":{"Ref":"dbSG"}
+
+      }
+    },
+    "inboundDB-bastion":{
+      "Type": "AWS::EC2::SecurityGroupingress",
+      "Properties":{
+        "IpProtocol":"tcp",
+        "FromPort":"3306",
+        "ToPort":"3306",
+        "SourceSecurityGroupId":{"Ref":"bastionSG"},
+        "GroupId":{"Ref":"dbSG"}
+
+      }
+    },
+    "inboundBastion-dbSG":{
+      "Type": "AWS::EC2::SecurityGroupingress",
+      "Properties":{
+        "IpProtocol":"tcp",
+        "FromPort":"3306",
+        "ToPort":"3306",
+        "SourceSecurityGroupId":{"Ref":"dbSG"},
+        "GroupId":{"Ref":"bastionSG"}
+
+      }
+    },
+    "inboundWeb-db":{
+      "Type": "AWS::EC2::SecurityGroupingress",
+      "Properties":{
+        "IpProtocol":"icmp",
+        "FromPort":"-1",
+        "ToPort":"-1",
+        "SourceSecurityGroupId":{"Ref":"dbSG"},
+        "GroupId":{"Ref":"webserverSG"}
+
+      }
+    },
+    "inboundApp-db":{
+      "Type": "AWS::EC2::SecurityGroupingress",
+      "Properties":{
+        "IpProtocol":"tcp",
+        "FromPort":"3306",
+        "ToPort":"3306",
+        "SourceSecurityGroupId":{"Ref":"dbSG"},
+        "GroupId":{"Ref":"appSG"}
+
+      }
+    },
+
+
+
 
 
  }
