@@ -213,7 +213,7 @@
       }
     },
     "inboundAppWeb":{
-      "Type": "AWS::EC2::SecurityGroupingress",
+      "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties":{
         "IpProtocol":"icmp",
         "FromPort":"-1",
@@ -223,7 +223,7 @@
       }
     },
     "inboundAppBastion":{
-      "Type": "AWS::EC2::SecurityGroupingress",
+      "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties":{
         "IpProtocol":"tcp",
         "FromPort":"22",
@@ -233,7 +233,7 @@
       }
     },
     "inboundDBApp":{
-      "Type": "AWS::EC2::SecurityGroupingress",
+      "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties":{
         "IpProtocol":"tcp",
         "FromPort":"3306",
@@ -244,7 +244,7 @@
       }
     },
     "inboundDbBastion":{
-      "Type": "AWS::EC2::SecurityGroupingress",
+      "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties":{
         "IpProtocol":"tcp",
         "FromPort":"3306",
@@ -255,7 +255,7 @@
       }
     },
     "inboundBastionDbSG":{
-      "Type": "AWS::EC2::SecurityGroupingress",
+      "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties":{
         "IpProtocol":"tcp",
         "FromPort":"3306",
@@ -266,7 +266,7 @@
       }
     },
     "inboundWebDb":{
-      "Type": "AWS::EC2::SecurityGroupingress",
+      "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties":{
         "IpProtocol":"icmp",
         "FromPort":"-1",
@@ -277,7 +277,7 @@
       }
     },
     "inboundAppDb":{
-      "Type": "AWS::EC2::SecurityGroupingress",
+      "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties":{
         "IpProtocol":"tcp",
         "FromPort":"3306",
