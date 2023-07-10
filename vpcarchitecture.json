@@ -66,9 +66,21 @@
         "InternetGatewayId": {"Ref": "DemoIGW"}
       }
     },
+
+    "ElasticIP":{
+      "Type" : "AWS::EC2::EIP",
+      "DependsOn":["NATGateway"] ,
+      "Properties" : {
+            "Domain" : "VPC",
+            "Tags" : [{"Key" : "Name", "Value" : "ElasticIP"}]
+       }
+    
+       },
+
     "NATGateway":{
       "Type":"AWS::EC2::NatGateway",
       "Properties":{
+        "AllocationId" : { "Fn::GetAtt" : ["ElasticIP", "AllocationId"]},
         "SubnetId":{
           "Ref":"PublicSub"
         },
@@ -338,6 +350,7 @@
     "subnetgroup":{
       "Type":"AWS::RDS::DBSubnetGroup",
       "Properties":{
+        "DBSubnetGroupDescription":"subnet group for db",
         "DBSubnetGroupName":"DBSubGroup",
         "SubnetIds":[{"Ref":"PrivateSub2"},{"Ref":"PrivateSub3"}]
       }
