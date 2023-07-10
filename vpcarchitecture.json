@@ -351,7 +351,7 @@
         "DBInstanceIdentifier":"database",
         "MasterUsername":"root",
         "MasterUserPassword":"Re:Start!9",
-        "VPCSecurityGroups":{"Ref":"dbSG"},
+        "VPCSecurityGroups":[{"Ref":"dbSG"}],
         "PubliclyAccessible":false,
         "AvailabilityZone":"us-west-2a",
         "AllocatedStorage": 20,
