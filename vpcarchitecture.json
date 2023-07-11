@@ -306,7 +306,7 @@
         "KeyName":"vockey",
         "InstanceType":"t2.micro",
         "ImageId":"ami-0ae49954dfb447966",
-        "SecurityGroupIds":{"Ref":"bastionSG"},
+        "SecurityGroupIds":[{"Ref":"bastionSG"}],
         "NetworkInterfaces": [ {
           "AssociatePublicIpAddress": "true",
           "DeviceIndex": "0",
