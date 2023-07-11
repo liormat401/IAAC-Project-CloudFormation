@@ -29,6 +29,7 @@ This repository contains a CloudFormation template for deploying the following i
 The architecture is taken from AWS re/Start Grad Training - V2- Project 1 Lab:  Highly Available 3-Tier Architecture.
 
 After completing the Lab through the Console, I challenged myself to do the same architecture by IAAC- CloudFormation.
+
 I added to the repository the AWS Lab guide for deploying the architecture by Console.
 
 **Architecture**
@@ -38,7 +39,7 @@ I added to the repository the AWS Lab guide for deploying the architecture by Co
 *Architecture from AWS Training Lab*
 
 ![template1-designer (2)](https://github.com/liormat401/IAAC-Project-CloudFormation/assets/126070709/282dd833-f10d-4cb6-a15b-165f086fd18e)
-*Automated architecture made by CloudFormation, according to my stack/template.*
+*Automated architecture made by CloudFormation Designer, according to my stack/template.*
 
 
 **Deployment**
