@@ -69,7 +69,7 @@
 
     "ElasticIP":{
       "Type" : "AWS::EC2::EIP",
-      "DependsOn":"AttachGateway",
+      "DependsOn":["AttachGateway"],
       "Properties" : {
             "Domain" : "VPC",
             "Tags" : [{"Key" : "Name", "Value" : "ElasticIP"}]
@@ -108,7 +108,7 @@
     },
     "PubRoute" :{
       "Type":"AWS::EC2::Route",
-      "DependsOn":"DemoIGW",
+      "DependsOn":["DemoIGW"],
       "Properties":{
         "RouteTableId": {"Ref":"PublicRoute"},
         "DestinationCidrBlock": "0.0.0.0/0",
