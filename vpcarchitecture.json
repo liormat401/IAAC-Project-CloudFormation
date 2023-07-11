@@ -352,7 +352,7 @@
       "Type": "AWS::RDS::DBInstance",
       "Properties": {
         "Engine":"mariadb",
-        "EngineVersion":"10.6.7",
+        "EngineVersion":"10.6",
         "DBInstanceIdentifier":"database",
         "MasterUsername":"root",
         "MasterUserPassword":"Re:Start!9",
