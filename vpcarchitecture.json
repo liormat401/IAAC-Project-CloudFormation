@@ -149,7 +149,7 @@
       "Properties":{
         "GroupDescription":"this is the sd of bastion host",
         "VpcId":{"Ref":"DemoVPC"},
-        "SecurityGroupEgress":[{
+        "SecurityGroupIngress":[{
           "IpProtocol": "tcp",
           "FromPort":"80",
           "ToPort":"80",
