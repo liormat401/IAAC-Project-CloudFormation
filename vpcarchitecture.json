@@ -311,7 +311,7 @@
           "AssociatePublicIpAddress": "true",
           "DeviceIndex": "0",
           "GroupSet": [{ "Ref" : "bastionSG" }],
-          "SubnetId": { "Ref" : "PublicSub" }
+          "SubnetId": [{ "Ref" : "PublicSub" }]
         } ],
         "Tags":[{"Key":"Name","Value":"Bastion"}]
       }
@@ -329,7 +329,7 @@
           "AssociatePublicIpAddress": "true",
           "DeviceIndex": "0",
           "GroupSet": [{ "Ref" : "webserverSG" }],
-          "SubnetId": { "Ref" : "PublicSub" }
+          "SubnetId": [{ "Ref" : "PublicSub" }]
         } ],
         "Tags":[{"Key":"Name","Value":"WebServer"}]
       }
@@ -342,7 +342,7 @@
         "KeyName":"vockey",
         "InstanceType":"t2.micro",
         "ImageId":"ami-0ae49954dfb447966",
-        "SecurityGroupIds":{"Ref":"appSG"},
+        "SecurityGroupIds":[{"Ref":"appSG"}],
         "Tags":[{"Key":"Name","Value":"AppServer"}]
       }
     },
