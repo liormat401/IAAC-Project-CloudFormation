@@ -52,7 +52,7 @@
         "VpcId": {
           "Ref": "DemoVPC"
         },
-        "Tags": [{"Key": "Name", "Value": "Private Subnet 1"}]
+        "Tags": [{"Key": "Name", "Value": "Private Subnet 3"}]
       }
     },
     "DemoIGW": {
@@ -66,16 +66,16 @@
         "InternetGatewayId": {"Ref": "DemoIGW"}
       }
     },
-
+    
     "ElasticIP":{
       "Type" : "AWS::EC2::EIP",
       "DependsOn":["AttachGateway"],
       "Properties" : {
-            "Domain" : "VPC",
-            "Tags" : [{"Key" : "Name", "Value" : "ElasticIP"}]
+       "Domain" : "VPC",
+       "Tags" : [{"Key" : "Name", "Value" : "ElasticIP"}]
        }
     
-       },
+    },
 
     "NATGateway":{
       "Type":"AWS::EC2::NatGateway",
