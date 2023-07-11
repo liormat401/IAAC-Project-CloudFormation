@@ -30,7 +30,7 @@ The architecture is taken from AWS re/Start Grad Training - V2- Project 1 Lab:  
 
 After completing the Lab through the Console, I challenged myself to do the same architecture by IAAC- CloudFormation.
 
-I added to the repository the AWS Lab guide for deploying the architecture by Console.
+
 
 **Architecture**
 
@@ -67,7 +67,9 @@ This project was tough for me as I never used CloudFormation or wrote anything i
 Here are resources that helped me a lot starting and troubleshooting along the way.
 
 - https://start.jcolemorrison.com/the-complete-cloudformation-guide-setting-up-our-series-project/
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
 - https://stackoverflow.com/questions/66131377/how-to-attach-elastic-ip-to-natgateway-via-cloud-formation
+- AWS Project 1 Lab Guide- Although it's a guide for the Console, it did help me configure one resource at a time. (is added as "Tier 3 Master Level Instructions")
   
 And how not, ChatGPT for always finding my missing commas of brackets.
 
