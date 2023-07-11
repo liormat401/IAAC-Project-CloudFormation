@@ -311,7 +311,7 @@
           "AssociatePublicIpAddress": "true",
           "DeviceIndex": "0",
           "GroupSet": [{ "Ref" : "bastionSG" }],
-          "SubnetId": [{ "Ref" : "PublicSub" }]
+          "SubnetId": { "Ref" : "PublicSub" }
         } ],
         "Tags":[{"Key":"Name","Value":"Bastion"}]
       }
@@ -329,7 +329,7 @@
           "AssociatePublicIpAddress": "true",
           "DeviceIndex": "0",
           "GroupSet": [{ "Ref" : "webserverSG" }],
-          "SubnetId": [{ "Ref" : "PublicSub" }]
+          "SubnetId": { "Ref" : "PublicSub" }
         } ],
         "Tags":[{"Key":"Name","Value":"WebServer"}]
       }
