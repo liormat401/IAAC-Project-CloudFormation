@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "A template for learning CloudFormation",
+  "Description": "A template for learning CloudFormation.",
   "Metadata": {
     "Author": "Lior Matana"
   },
