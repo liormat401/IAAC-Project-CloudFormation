@@ -1,4 +1,4 @@
-# IAAC-Project-CloudFormation
+# IAC-Project-CloudFormation
 **CloudFormation Template: Infrastructure Deployment**
 
 This project was made by:
